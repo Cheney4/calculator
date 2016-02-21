@@ -15,6 +15,9 @@ public class Calculator {
 	/** integer to hold the total of all calculator operations */
 	private int total;
 	
+	/** string to hold history of calculations, default value of 0 */
+	private String history = "0";
+	
 	/** Creates a calculator object with total equal to 0 */
 	public Calculator () {
 		
@@ -32,7 +35,7 @@ public class Calculator {
 	}
 	
 	/**
-	 * Adds a parameter to the total
+	 * Adds a parameter to the total and updates the history.
 	 * 
 	 * @param value value to be added to the total
 	 */
@@ -40,10 +43,12 @@ public class Calculator {
 	public void add (int value) {
 		
 		total += value;
+		
+		history += " + " + value;
 	}
 	
 	/**
-	 * Subtracts a parameter from the total
+	 * Subtracts a parameter from the total and updates the history.
 	 * 
 	 * @param value value to be subtracted from the total
 	 */
@@ -51,10 +56,12 @@ public class Calculator {
 	public void subtract (int value) {
 		
 		total -= value;
+		
+		history += " - " + value;
 	}
 	
 	/**
-	 * Multiplies the total by a parameter
+	 * Multiplies the total by a parameter and updates the history.
 	 * 
 	 * @param value value to be used for multiplication
 	 */
@@ -62,28 +69,36 @@ public class Calculator {
 	public void multiply (int value) {
 		
 		total *= value;
+		
+		history += " * " + value;
 	}
 	
 	/**
-	 * Divides the total by a parameter using integer division.
+	 * Divides the total by a parameter using integer division and updates the history.
 	 * Division by zero results in zero.
 	 * 
 	 * @param value value to be used for division
 	 */
 	public void divide (int value) {
 		
-		if (value == 0)
-			total = 0;
+		history += " / " + value;
 		
-		total /= value;
+		if (value == 0)
+		{
+			total = 0;
+		}
+		else
+		{
+			total /= value;
+		}
 	}
 	
 	/**
-	 * Fetches the history of calculator operations performed
+	 * Fetches the history of calculator operations performed.
 	 * 
 	 * @return String of calculator operations performed.
 	 */	
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
