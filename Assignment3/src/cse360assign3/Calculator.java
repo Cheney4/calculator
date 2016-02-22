@@ -7,7 +7,7 @@ package cse360assign3;
  * operations performed. Integer arithmetic is used.
  * 
  * @author Adam Charney PIN 213 for CSE360 Spring 2016
- * @version 1
+ * @version 4
  */
 
 public class Calculator {
@@ -44,7 +44,7 @@ public class Calculator {
 		
 		total += value;
 		
-		history += " + " + value;
+		history += " + " + value; //update history for getHistory method
 	}
 	
 	/**
@@ -57,7 +57,7 @@ public class Calculator {
 		
 		total -= value;
 		
-		history += " - " + value;
+		history += " - " + value; //update history for getHistory method
 	}
 	
 	/**
@@ -70,7 +70,7 @@ public class Calculator {
 		
 		total *= value;
 		
-		history += " * " + value;
+		history += " * " + value; //update history for getHistory method
 	}
 	
 	/**
@@ -81,11 +81,11 @@ public class Calculator {
 	 */
 	public void divide (int value) {
 		
-		history += " / " + value;
+		history += " / " + value; //update history for getHistory method
 		
 		if (value == 0)
 		{
-			total = 0;
+			total = 0; //division by zero yields zero
 		}
 		else
 		{
